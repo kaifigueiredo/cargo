@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#e8e8eb;}
+  *{box-sizing:border-box;}
+  ::-webkit-scrollbar{height:10px;width:10px;}
+  ::-webkit-scrollbar-thumb{background:#c4c4c8;border-radius:6px;}
+</style>
+</helmet>
+<meta name="design_doc_mode" content="canvas">
+
+<div style="font-family:'Archivo',Helvetica,Arial,sans-serif;padding:40px 48px 80px;display:flex;flex-direction:column;align-items:center;gap:56px;color:#3a3a3d;">
+
+  <!-- top bar -->
+  <div style="width:100%;max-width:1140px;display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div>
+      <div style="font:800 26px 'Archivo';color:#2c2c2f;letter-spacing:-.01em;">Air Freight Platform</div>
+      <div style="font:500 13px 'Archivo';color:#8a8a8e;margin-top:4px;">Low-fidelity wireframes · quote-building flow</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="#s1" style="text-decoration:none;font:600 12px 'Archivo';color:#6b6b6e;background:#fff;border:1px solid #d2d2d5;border-radius:20px;padding:7px 14px;">01 Input</a>
+      <a href="#s2" style="text-decoration:none;font:600 12px 'Archivo';color:#6b6b6e;background:#fff;border:1px solid #d2d2d5;border-radius:20px;padding:7px 14px;">02 Results</a>
+      <a href="#s3" style="text-decoration:none;font:600 12px 'Archivo';color:#6b6b6e;background:#fff;border:1px solid #d2d2d5;border-radius:20px;padding:7px 14px;">03 Quote</a>
+      <a href="#s4" style="text-decoration:none;font:600 12px 'Archivo';color:#6b6b6e;background:#fff;border:1px solid #d2d2d5;border-radius:20px;padding:7px 14px;">04 PDF</a>
+    </div>
+  </div>
+
+  <!-- ============ SCREEN 1 : INPUT ============ -->
+  <section id="s1" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div style="display:flex;align-items:center;gap:10px;align-self:flex-start;width:1140px;">
+      <span style="font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:5px 9px;">01</span>
+      <span style="font:600 14px 'Archivo';color:#6b6b6e;">Input page — search air freight offers</span>
+    </div>
+
+    <div style="width:1140px;background:#fcfcfd;border:1px solid #d4d4d7;border-radius:10px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04);">
+      <!-- hero band -->
+      <div style="background:#dadade;padding:36px 40px 30px;display:flex;justify-content:space-between;align-items:flex-start;">
+        <div>
+          <div style="width:360px;height:26px;background:#b9b9bf;border-radius:4px;"></div>
+          <div style="width:240px;height:12px;background:#c6c6cb;border-radius:3px;margin-top:14px;"></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;background:#cfcfd4;border:1px solid #bcbcc1;border-radius:7px;padding:10px 16px;">
+          <div style="width:14px;height:14px;background:#9a9a9f;border-radius:3px;"></div>
+          <div style="width:64px;height:11px;background:#9a9a9f;border-radius:3px;"></div>
+        </div>
+      </div>
+
+      <!-- form card -->
+      <div style="padding:24px 40px 40px;">
+        <div style="background:#fff;border:1px solid #d9d9dc;border-radius:8px;padding:26px 28px;">
+          <!-- card header -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="font:700 15px 'Archivo';color:#3a3a3d;">Enter shipment details</span>
+              <span style="display:flex;align-items:center;gap:6px;background:#eef0f4;border-radius:20px;padding:5px 11px;">
+                <span style="width:12px;height:12px;background:#a9aeb8;border-radius:50%;"></span>
+                <span style="width:130px;height:9px;background:#b6bac3;border-radius:3px;"></span>
+              </span>
+            </div>
+            <span style="font:600 12px 'Archivo';color:#8a8a8e;border:1px solid #d2d2d5;border-radius:6px;padding:7px 13px;">↺ Clear</span>
+          </div>
+
+          <!-- 3 fields -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:28px;">
+            <div>
+              <label style="display:block;font:600 10px 'Archivo';letter-spacing:.06em;text-transform:uppercase;color:#9a9a9e;margin-bottom:7px;">Origin</label>
+              <div style="height:42px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;display:flex;align-items:center;gap:10px;padding:0 12px;"><span style="width:13px;height:13px;background:#c2c2c6;border-radius:3px;"></span><span style="width:150px;height:10px;background:#c9c9cd;border-radius:3px;"></span></div>
+            </div>
+            <div>
+              <label style="display:block;font:600 10px 'Archivo';letter-spacing:.06em;text-transform:uppercase;color:#9a9a9e;margin-bottom:7px;">Destination</label>
+              <div style="height:42px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;display:flex;align-items:center;gap:10px;padding:0 12px;"><span style="width:13px;height:13px;background:#c2c2c6;border-radius:3px;"></span><span style="width:170px;height:10px;background:#c9c9cd;border-radius:3px;"></span></div>
+            </div>
+            <div>
+              <label style="display:block;font:600 10px 'Archivo';letter-spacing:.06em;text-transform:uppercase;color:#9a9a9e;margin-bottom:7px;">Type</label>
+              <div style="height:42px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;"><span style="width:120px;height:10px;background:#c9c9cd;border-radius:3px;"></span><span style="color:#b4b4b8;font-size:12px;">▾</span></div>
+            </div>
+          </div>
+
+          <hr style="height:1px;background:#ececee;border:none;margin:0 0 22px;">
+
+          <!-- dimensions -->
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+            <span style="width:16px;height:16px;background:#bdbdc1;border-radius:3px;"></span>
+            <span style="font:700 14px 'Archivo';color:#3a3a3d;">Shipment Dimensions</span>
+            <span style="font:500 12px 'Archivo';color:#9a9a9e;">Metric (kg, cm) ▾</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 28px;gap:14px;margin-bottom:12px;">
+            <label style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Quantity</label>
+            <label style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Weight (kg)</label>
+            <label style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Length (cm)</label>
+            <label style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Height (cm)</label>
+            <label style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Depth (cm)</label>
+            <span></span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 28px;gap:14px;align-items:center;margin-bottom:12px;">
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <span style="text-align:center;color:#bcbcc0;font-size:15px;">✕</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 28px;gap:14px;align-items:center;margin-bottom:16px;">
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <div style="height:40px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:6px;"></div>
+            <span style="text-align:center;color:#bcbcc0;font-size:15px;">✕</span>
+          </div>
+
+          <div style="font:600 13px 'Archivo';color:#7a7a7e;margin-bottom:18px;">+ Add item</div>
+          <hr style="height:1px;background:#ececee;border:none;margin:0 0 20px;">
+
+          <!-- totals + cta -->
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+            <div style="display:flex;gap:44px;">
+              <div><div style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:8px;">Total weight</div><div style="width:64px;height:18px;background:#c6c6cb;border-radius:3px;"></div></div>
+              <div><div style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:8px;">Total volume</div><div style="width:64px;height:18px;background:#c6c6cb;border-radius:3px;"></div></div>
+              <div><div style="font:600 10px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:8px;">Chargeable</div><div style="width:64px;height:18px;background:#c6c6cb;border-radius:3px;"></div></div>
+            </div>
+            <a href="#s2" style="text-decoration:none;background:#3a3a3d;color:#fff;border-radius:6px;padding:13px 24px;font:700 13px 'Archivo';">Get rates →</a>
+          </div>
+        </div>
+
+        <!-- continue where left off -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin:28px 0 14px;">
+          <span style="font:700 14px 'Archivo';color:#3a3a3d;">Continue where you left off</span>
+          <span style="font:600 12px 'Archivo';color:#8a8a8e;">See all →</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;">
+          <div style="background:#fff;border:1px solid #d9d9dc;border-radius:7px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;"><div><div style="width:90px;height:10px;background:#c6c6cb;border-radius:3px;margin-bottom:8px;"></div><div style="width:70px;height:10px;background:#dcdce0;border-radius:3px;"></div></div><div style="width:46px;height:10px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="background:#fff;border:1px solid #d9d9dc;border-radius:7px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;"><div><div style="width:90px;height:10px;background:#c6c6cb;border-radius:3px;margin-bottom:8px;"></div><div style="width:70px;height:10px;background:#dcdce0;border-radius:3px;"></div></div><div style="width:46px;height:10px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="background:#fff;border:1px solid #d9d9dc;border-radius:7px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;"><div><div style="width:90px;height:10px;background:#c6c6cb;border-radius:3px;margin-bottom:8px;"></div><div style="width:70px;height:10px;background:#dcdce0;border-radius:3px;"></div></div><div style="width:46px;height:10px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="background:#fff;border:1px solid #d9d9dc;border-radius:7px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;"><div><div style="width:90px;height:10px;background:#c6c6cb;border-radius:3px;margin-bottom:8px;"></div><div style="width:70px;height:10px;background:#dcdce0;border-radius:3px;"></div></div><div style="width:46px;height:10px;background:#dcdce0;border-radius:3px;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2 : RESULTS ============ -->
+  <section id="s2" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div style="display:flex;align-items:center;gap:10px;align-self:flex-start;width:1140px;">
+      <span style="font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:5px 9px;">02</span>
+      <span style="font:600 14px 'Archivo';color:#6b6b6e;">Results list — offers with View offer / Add to quote</span>
+    </div>
+
+    <div style="width:1140px;background:#fcfcfd;border:1px solid #d4d4d7;border-radius:10px;padding:24px 28px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 2px rgba(0,0,0,.04);">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font:700 14px 'Archivo';color:#3a3a3d;">4 results · JFK → LHR</span>
+        <span style="font:600 12px 'Archivo';color:#8a8a8e;border:1px solid #d2d2d5;border-radius:6px;padding:7px 13px;">Sort: Price ▾</span>
+      </div>
+
+      <!-- card template (repeated). Helper structure inlined -->
+      <!-- CARD 1 -->
+      <div style="background:#fff;border:1px solid #d9d9dc;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:1fr 232px;gap:22px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:48px;">
+            <div style="display:flex;align-items:center;gap:14px;width:200px;">
+              <div style="width:56px;height:34px;background:repeating-linear-gradient(45deg,#e2e2e5,#e2e2e5 5px,#f1f1f3 5px,#f1f1f3 10px);border:1px solid #d6d6d8;border-radius:4px;"></div>
+              <div><div style="width:90px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:7px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+            <div style="flex:1;display:flex;align-items:center;gap:14px;">
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:34px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+              <div style="flex:1;border-top:1px dashed #cfcfd3;position:relative;text-align:center;"><span style="position:relative;top:-9px;background:#fff;padding:0 8px;font:500 10px 'Archivo';color:#9a9a9e;">✈ 1 Stop CDG</span></div>
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:40px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+          </div>
+          <hr style="height:1px;background:#ececee;border:none;margin:16px 0;">
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;">
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Rate name</div><div style="width:64px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Aircraft</div><div style="width:74px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">CO₂ emissions</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Chargeable wt</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Total price</div><div style="width:72px;height:11px;background:#bdbdc2;border-radius:3px;"></div></div>
+          </div>
+        </div>
+        <div style="border-left:1px solid #ececee;padding-left:22px;display:flex;flex-direction:column;gap:10px;">
+          <div><div style="width:64px;height:18px;background:#bdbdc2;border-radius:3px;margin-bottom:6px;"></div><div style="width:50px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="text-align:center;font:700 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:9px 0;">Add to quote</div>
+          <a href="#s3" style="text-decoration:none;text-align:center;font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:10px 0;">View offer</a>
+        </div>
+      </div>
+
+      <!-- CARD 2 (selected) -->
+      <div style="background:#fff;border:2px solid #9a9a9f;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:1fr 232px;gap:22px;box-shadow:0 2px 10px rgba(0,0,0,.06);">
+        <div>
+          <div style="display:flex;align-items:center;gap:48px;">
+            <div style="display:flex;align-items:center;gap:14px;width:200px;">
+              <div style="width:56px;height:34px;background:repeating-linear-gradient(45deg,#e2e2e5,#e2e2e5 5px,#f1f1f3 5px,#f1f1f3 10px);border:1px solid #d6d6d8;border-radius:4px;"></div>
+              <div><div style="width:90px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:7px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+            <div style="flex:1;display:flex;align-items:center;gap:14px;">
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:34px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+              <div style="flex:1;border-top:1px dashed #cfcfd3;position:relative;text-align:center;"><span style="position:relative;top:-9px;background:#fff;padding:0 8px;font:500 10px 'Archivo';color:#9a9a9e;">✈ Direct</span></div>
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:40px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+          </div>
+          <hr style="height:1px;background:#ececee;border:none;margin:16px 0;">
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;">
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Rate name</div><div style="width:64px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Aircraft</div><div style="width:74px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">CO₂ emissions</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Chargeable wt</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Total price</div><div style="width:72px;height:11px;background:#bdbdc2;border-radius:3px;"></div></div>
+          </div>
+        </div>
+        <div style="border-left:1px solid #ececee;padding-left:22px;display:flex;flex-direction:column;gap:10px;">
+          <div><div style="width:64px;height:18px;background:#bdbdc2;border-radius:3px;margin-bottom:6px;"></div><div style="width:50px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="text-align:center;font:700 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:9px 0;">Add to quote</div>
+          <a href="#s3" style="text-decoration:none;text-align:center;font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:10px 0;">View offer</a>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div style="background:#fff;border:1px solid #d9d9dc;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:1fr 232px;gap:22px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:48px;">
+            <div style="display:flex;align-items:center;gap:14px;width:200px;">
+              <div style="width:56px;height:34px;background:repeating-linear-gradient(45deg,#e2e2e5,#e2e2e5 5px,#f1f1f3 5px,#f1f1f3 10px);border:1px solid #d6d6d8;border-radius:4px;"></div>
+              <div><div style="width:90px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:7px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+            <div style="flex:1;display:flex;align-items:center;gap:14px;">
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:34px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+              <div style="flex:1;border-top:1px dashed #cfcfd3;position:relative;text-align:center;"><span style="position:relative;top:-9px;background:#fff;padding:0 8px;font:500 10px 'Archivo';color:#9a9a9e;">✈ 1 Stop AMS</span></div>
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:40px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+          </div>
+          <hr style="height:1px;background:#ececee;border:none;margin:16px 0;">
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;">
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Rate name</div><div style="width:64px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Aircraft</div><div style="width:74px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">CO₂ emissions</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Chargeable wt</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Total price</div><div style="width:72px;height:11px;background:#bdbdc2;border-radius:3px;"></div></div>
+          </div>
+        </div>
+        <div style="border-left:1px solid #ececee;padding-left:22px;display:flex;flex-direction:column;gap:10px;">
+          <div><div style="width:64px;height:18px;background:#bdbdc2;border-radius:3px;margin-bottom:6px;"></div><div style="width:50px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="text-align:center;font:700 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:9px 0;">Add to quote</div>
+          <a href="#s3" style="text-decoration:none;text-align:center;font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:10px 0;">View offer</a>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div style="background:#fff;border:1px solid #d9d9dc;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:1fr 232px;gap:22px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:48px;">
+            <div style="display:flex;align-items:center;gap:14px;width:200px;">
+              <div style="width:56px;height:34px;background:repeating-linear-gradient(45deg,#e2e2e5,#e2e2e5 5px,#f1f1f3 5px,#f1f1f3 10px);border:1px solid #d6d6d8;border-radius:4px;"></div>
+              <div><div style="width:90px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:7px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+            <div style="flex:1;display:flex;align-items:center;gap:14px;">
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:34px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+              <div style="flex:1;border-top:1px dashed #cfcfd3;position:relative;text-align:center;"><span style="position:relative;top:-9px;background:#fff;padding:0 8px;font:500 10px 'Archivo';color:#9a9a9e;">✈ Direct</span></div>
+              <div style="text-align:center;"><div style="width:34px;height:12px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:40px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+          </div>
+          <hr style="height:1px;background:#ececee;border:none;margin:16px 0;">
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;">
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Rate name</div><div style="width:64px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Aircraft</div><div style="width:74px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">CO₂ emissions</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Chargeable wt</div><div style="width:60px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:7px;">Total price</div><div style="width:72px;height:11px;background:#bdbdc2;border-radius:3px;"></div></div>
+          </div>
+        </div>
+        <div style="border-left:1px solid #ececee;padding-left:22px;display:flex;flex-direction:column;gap:10px;">
+          <div><div style="width:64px;height:18px;background:#bdbdc2;border-radius:3px;margin-bottom:6px;"></div><div style="width:50px;height:9px;background:#dcdce0;border-radius:3px;"></div></div>
+          <div style="text-align:center;font:700 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:9px 0;">Add to quote</div>
+          <a href="#s3" style="text-decoration:none;text-align:center;font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:10px 0;">View offer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3 : QUOTE FORM ============ -->
+  <section id="s3" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div style="display:flex;align-items:center;gap:10px;align-self:flex-start;width:760px;">
+      <span style="font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:5px 9px;">03</span>
+      <span style="font:600 14px 'Archivo';color:#6b6b6e;">Quote form — added offers, shipment info, local charges</span>
+    </div>
+
+    <div style="width:760px;background:#fcfcfd;border:1px solid #d4d4d7;border-radius:10px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04);">
+      <!-- app top bar -->
+      <div style="background:#3a3a3d;display:flex;align-items:center;justify-content:space-between;padding:11px 18px;">
+        <div style="display:flex;align-items:center;gap:22px;">
+          <div style="width:70px;height:14px;background:#6c6c70;border-radius:3px;"></div>
+          <div style="display:flex;gap:16px;">
+            <div style="width:54px;height:10px;background:#9a9a9e;border-radius:3px;"></div>
+            <div style="width:54px;height:10px;background:#6c6c70;border-radius:3px;"></div>
+            <div style="width:54px;height:10px;background:#6c6c70;border-radius:3px;"></div>
+            <div style="width:44px;height:10px;background:#6c6c70;border-radius:3px;"></div>
+          </div>
+        </div>
+        <div style="width:80px;height:10px;background:#6c6c70;border-radius:3px;"></div>
+      </div>
+      <!-- shipment context bar -->
+      <div style="background:#2e2e31;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font:700 12px 'Archivo';color:#e6e6e8;">FRA → PVG</span>
+          <span style="width:80px;height:9px;background:#56565a;border-radius:3px;"></span>
+          <span style="width:120px;height:9px;background:#56565a;border-radius:3px;"></span>
+          <span style="font:500 11px 'Archivo';color:#b6b6ba;">✎ Modify</span>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <span style="font:600 11px 'Archivo';color:#d6d6d8;background:#4a4a4e;border-radius:5px;padding:7px 12px;">Sync to TMS</span>
+          <span style="font:600 11px 'Archivo';color:#fff;background:#5c5c61;border-radius:5px;padding:7px 12px;">Share quote</span>
+        </div>
+      </div>
+      <!-- rate tabs -->
+      <div style="background:#26262a;display:flex;gap:4px;padding:0 18px;">
+        <div style="font:500 10px 'Archivo';color:#9a9a9e;padding:9px 12px;">Live rates</div>
+        <div style="font:500 10px 'Archivo';color:#9a9a9e;padding:9px 12px;">Static rates</div>
+        <div style="font:500 10px 'Archivo';color:#9a9a9e;padding:9px 12px;">Internal rates</div>
+        <div style="font:500 10px 'Archivo';color:#9a9a9e;padding:9px 12px;">Adhoc rates</div>
+        <div style="font:500 10px 'Archivo';color:#9a9a9e;padding:9px 12px;">Schedules</div>
+        <div style="font:700 10px 'Archivo';color:#2e2e31;background:#fcfcfd;border-radius:5px 5px 0 0;padding:9px 14px;">Quote</div>
+      </div>
+
+      <!-- body -->
+      <div style="padding:26px 28px;display:flex;flex-direction:column;gap:24px;">
+
+        <!-- company details -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span style="font:700 14px 'Archivo';color:#3a3a3d;">Company Details</span>
+            <span style="font:600 11px 'Archivo';color:#8a8a8e;border:1px solid #d2d2d5;border-radius:6px;padding:6px 12px;">✎ Edit</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div style="width:74px;height:38px;background:repeating-linear-gradient(45deg,#e2e2e5,#e2e2e5 5px,#f1f1f3 5px,#f1f1f3 10px);border:1px solid #d6d6d8;border-radius:4px;"></div>
+            <div style="text-align:right;display:flex;flex-direction:column;gap:7px;align-items:flex-end;">
+              <div style="width:90px;height:11px;background:#c6c6cb;border-radius:3px;"></div>
+              <div style="width:140px;height:9px;background:#dcdce0;border-radius:3px;"></div>
+              <div style="width:110px;height:9px;background:#dcdce0;border-radius:3px;"></div>
+              <div style="width:120px;height:9px;background:#dcdce0;border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- recipient -->
+        <div>
+          <span style="font:700 14px 'Archivo';color:#3a3a3d;display:block;margin-bottom:14px;">Recipient</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;">
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Name</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Email</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Phone number</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Company</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Address</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+          </div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- quote details -->
+        <div>
+          <span style="font:700 14px 'Archivo';color:#3a3a3d;display:block;margin-bottom:14px;">Quote Details</span>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:14px;">
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Incoterm</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Commodity</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Date</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Validity</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Currency</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Collection address</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Delivery address</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+            <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Reference number</label><div style="height:36px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+          </div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- pieces -->
+        <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;">
+          <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Pieces</label><div style="width:70px;height:34px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+          <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Dimensions (L×H×D)</label><div style="display:flex;gap:6px;"><div style="width:54px;height:34px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div><div style="width:54px;height:34px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div><div style="width:54px;height:34px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div></div>
+          <div><label style="display:block;font:600 9px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;margin-bottom:6px;">Weight (kg)</label><div style="width:90px;height:34px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:5px;"></div></div>
+          <div style="display:flex;gap:14px;padding-bottom:8px;"><span style="font:500 11px 'Archivo';color:#8a8a8e;">◉ Total</span><span style="font:500 11px 'Archivo';color:#8a8a8e;">○ Per item</span><span style="font:500 11px 'Archivo';color:#8a8a8e;">☑ Stackable</span></div>
+        </div>
+        <div style="background:#f6f6f7;border:1px solid #e6e6e8;border-radius:6px;padding:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+          <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Total pieces</div><div style="width:30px;height:12px;background:#c9c9cd;border-radius:3px;"></div></div>
+          <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Total volume</div><div style="width:54px;height:12px;background:#c9c9cd;border-radius:3px;"></div></div>
+          <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Total weight</div><div style="width:54px;height:12px;background:#c9c9cd;border-radius:3px;"></div></div>
+          <div><div style="font:600 9px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Chargeable weight</div><div style="width:54px;height:12px;background:#bdbdc2;border-radius:3px;"></div></div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- air freight (added offers) -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font:700 14px 'Archivo';color:#3a3a3d;">Air freight <span style="font:500 11px 'Archivo';color:#9a9a9e;">· offers added to quote</span></span>
+            <span style="font:600 11px 'Archivo';color:#7a7a7e;">Cheapest offer · ▮▮▮▮</span>
+          </div>
+          <div style="border:1px solid #e2e2e5;border-radius:6px;overflow:hidden;">
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr .8fr .8fr 50px;gap:8px;background:#f0f0f2;padding:9px 12px;">
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Airline</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Details</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Departure</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Route</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Arrival</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Buy rate</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Profit</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;text-align:right;">Total</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr .8fr .8fr 50px;gap:8px;padding:11px 12px;border-top:1px solid #eee;align-items:center;"><div style="width:80px;height:10px;background:#c6c6cb;border-radius:3px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:60px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:54px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:60px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:40px;height:10px;background:#bdbdc2;border-radius:3px;margin-left:auto;"></div></div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr .8fr .8fr 50px;gap:8px;padding:11px 12px;border-top:1px solid #eee;align-items:center;"><div style="width:80px;height:10px;background:#c6c6cb;border-radius:3px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:60px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:54px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:60px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:40px;height:10px;background:#bdbdc2;border-radius:3px;margin-left:auto;"></div></div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr .8fr .8fr 50px;gap:8px;padding:11px 12px;border-top:1px solid #eee;align-items:center;"><div style="width:80px;height:10px;background:#c6c6cb;border-radius:3px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:60px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:54px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:60px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:9px;background:#dcdce0;border-radius:3px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:40px;height:10px;background:#bdbdc2;border-radius:3px;margin-left:auto;"></div></div>
+          </div>
+          <div style="font:600 12px 'Archivo';color:#7a7a7e;margin-top:10px;">+ Add airline manually</div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- origin local charges -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font:700 14px 'Archivo';color:#3a3a3d;">Origin local charges</span>
+            <span style="font:600 11px 'Archivo';color:#7a7a7e;">Total origin charges · ▮▮▮</span>
+          </div>
+          <div style="border:1px solid #e2e2e5;border-radius:6px;overflow:hidden;">
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr 1fr .9fr 30px;gap:8px;background:#f0f0f2;padding:9px 12px;">
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Charge name</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Calc basis</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Base</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Per kilo</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Min</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Max</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;text-align:right;">Total</span>
+              <span></span>
+            </div>
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr 1fr .9fr 30px;gap:8px;padding:10px 12px;border-top:1px solid #eee;align-items:center;"><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:36px;height:10px;background:#c9c9cd;border-radius:3px;margin-left:auto;"></div><div style="text-align:center;color:#c4c4c8;">🗑</div></div>
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr 1fr .9fr 30px;gap:8px;padding:10px 12px;border-top:1px solid #eee;align-items:center;"><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:36px;height:10px;background:#c9c9cd;border-radius:3px;margin-left:auto;"></div><div style="text-align:center;color:#c4c4c8;">🗑</div></div>
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr 1fr .9fr 30px;gap:8px;padding:10px 12px;border-top:1px solid #eee;align-items:center;"><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:36px;height:10px;background:#c9c9cd;border-radius:3px;margin-left:auto;"></div><div style="text-align:center;color:#c4c4c8;">🗑</div></div>
+          </div>
+          <div style="font:600 12px 'Archivo';color:#7a7a7e;margin-top:10px;">+ Add row</div>
+        </div>
+
+        <!-- trucking charges -->
+        <div>
+          <span style="font:700 13px 'Archivo';color:#3a3a3d;display:block;margin-bottom:4px;">Trucking Charges</span>
+          <span style="font:500 11px 'Archivo';color:#9a9a9e;display:block;margin-bottom:10px;">Truck charges display alongside your other charges in a single list.</span>
+          <div style="border:1px solid #e2e2e5;border-radius:6px;overflow:hidden;">
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr 1fr .9fr 30px;gap:8px;background:#f0f0f2;padding:9px 12px;">
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Charge name</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Calc basis</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Base</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Per kilo</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Min</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;">Max</span>
+              <span style="font:600 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#9a9a9e;text-align:right;">Total</span>
+              <span></span>
+            </div>
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr 1fr .9fr 30px;gap:8px;padding:10px 12px;border-top:1px solid #eee;align-items:center;"><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="height:26px;background:#f4f4f5;border:1px solid #d6d6d9;border-radius:4px;"></div><div style="width:36px;height:10px;background:#c9c9cd;border-radius:3px;margin-left:auto;"></div><div style="text-align:center;color:#c4c4c8;">🗑</div></div>
+          </div>
+          <div style="font:600 12px 'Archivo';color:#7a7a7e;margin-top:10px;">Change provider</div>
+        </div>
+
+        <!-- destination local charges -->
+        <div>
+          <span style="font:700 14px 'Archivo';color:#3a3a3d;display:block;margin-bottom:12px;">Destination local charges</span>
+          <div style="display:flex;gap:10px;">
+            <span style="font:600 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:10px 16px;">Load my charges</span>
+            <span style="font:600 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:10px 16px;">Add partner's charges</span>
+          </div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- additional notes -->
+        <div>
+          <span style="font:700 14px 'Archivo';color:#3a3a3d;display:block;margin-bottom:12px;">Additional notes</span>
+          <div style="background:#f6f6f7;border:1px solid #e6e6e8;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:9px;">
+            <div style="width:90%;height:9px;background:#d8d8dc;border-radius:3px;"></div>
+            <div style="width:96%;height:9px;background:#dcdce0;border-radius:3px;"></div>
+            <div style="width:80%;height:9px;background:#dcdce0;border-radius:3px;"></div>
+            <div style="width:88%;height:9px;background:#dcdce0;border-radius:3px;"></div>
+          </div>
+        </div>
+        <hr style="height:1px;background:#ececee;border:none;margin:0;">
+
+        <!-- quote total -->
+        <div>
+          <span style="font:700 14px 'Archivo';color:#3a3a3d;display:block;margin-bottom:12px;">Quote total</span>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ececee;"><div style="width:120px;height:10px;background:#c6c6cb;border-radius:3px;"></div><div style="width:70px;height:10px;background:#bdbdc2;border-radius:3px;"></div></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ececee;"><div style="width:140px;height:10px;background:#c6c6cb;border-radius:3px;"></div><div style="width:70px;height:10px;background:#bdbdc2;border-radius:3px;"></div></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;"><div style="width:100px;height:10px;background:#c6c6cb;border-radius:3px;"></div><div style="width:70px;height:10px;background:#bdbdc2;border-radius:3px;"></div></div>
+        </div>
+
+        <!-- export action -->
+        <div style="display:flex;justify-content:flex-end;gap:10px;">
+          <span style="font:600 12px 'Archivo';color:#7a7a7e;border:1px solid #c4c4c6;border-radius:6px;padding:11px 18px;">Save draft</span>
+          <a href="#s4" style="text-decoration:none;font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:12px 20px;">↓ Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4 : DOWNLOADED PDF ============ -->
+  <section id="s4" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div style="display:flex;align-items:center;gap:10px;align-self:flex-start;width:620px;">
+      <span style="font:700 12px 'Archivo';color:#fff;background:#3a3a3d;border-radius:6px;padding:5px 9px;">04</span>
+      <span style="font:600 14px 'Archivo';color:#6b6b6e;">Downloaded PDF — the generated quote document</span>
+    </div>
+
+    <!-- pdf viewer chrome -->
+    <div style="width:620px;background:#4a4a4e;border-radius:10px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;">
+        <div style="display:flex;align-items:center;gap:10px;"><span style="color:#c8c8cc;font-size:13px;">📄</span><span style="font:600 12px 'Archivo';color:#e6e6e8;">air-freight-quote-DEFRA10002.pdf</span></div>
+        <div style="display:flex;align-items:center;gap:14px;"><span style="font:500 11px 'Archivo';color:#b6b6ba;">1 / 1</span><span style="color:#c8c8cc;">⤓</span><span style="color:#c8c8cc;">🖨</span></div>
+      </div>
+
+      <!-- the page -->
+      <div style="padding:18px;background:#5a5a5e;">
+        <div style="background:#fff;padding:34px 36px;display:flex;flex-direction:column;gap:20px;">
+          <!-- letterhead -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #3a3a3d;padding-bottom:18px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:54px;height:30px;background:repeating-linear-gradient(45deg,#e2e2e5,#e2e2e5 5px,#f1f1f3 5px,#f1f1f3 10px);border:1px solid #d6d6d8;border-radius:3px;"></div>
+              <div><div style="width:80px;height:11px;background:#c6c6cb;border-radius:3px;margin-bottom:6px;"></div><div style="width:120px;height:8px;background:#dcdce0;border-radius:3px;"></div></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font:800 18px 'Archivo';color:#3a3a3d;">QUOTE</div>
+              <div style="width:90px;height:8px;background:#dcdce0;border-radius:3px;margin:8px 0 0 auto;"></div>
+              <div style="width:70px;height:8px;background:#dcdce0;border-radius:3px;margin:6px 0 0 auto;"></div>
+            </div>
+          </div>
+
+          <!-- from / to -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+            <div><div style="font:700 9px 'Archivo';letter-spacing:.06em;text-transform:uppercase;color:#9a9a9e;margin-bottom:9px;">From</div><div style="display:flex;flex-direction:column;gap:6px;"><div style="width:90px;height:9px;background:#c6c6cb;border-radius:3px;"></div><div style="width:130px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:110px;height:8px;background:#dcdce0;border-radius:3px;"></div></div></div>
+            <div><div style="font:700 9px 'Archivo';letter-spacing:.06em;text-transform:uppercase;color:#9a9a9e;margin-bottom:9px;">Bill to</div><div style="display:flex;flex-direction:column;gap:6px;"><div style="width:90px;height:9px;background:#c6c6cb;border-radius:3px;"></div><div style="width:130px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:110px;height:8px;background:#dcdce0;border-radius:3px;"></div></div></div>
+          </div>
+
+          <!-- shipment summary -->
+          <div style="background:#f6f6f7;border:1px solid #e6e6e8;border-radius:5px;padding:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+            <div><div style="font:700 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Route</div><div style="font:700 11px 'Archivo';color:#3a3a3d;">FRA → PVG</div></div>
+            <div><div style="font:700 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Pieces</div><div style="width:24px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:700 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Ch. weight</div><div style="width:50px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+            <div><div style="font:700 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#a4a4a8;margin-bottom:6px;">Validity</div><div style="width:54px;height:11px;background:#c9c9cd;border-radius:3px;"></div></div>
+          </div>
+
+          <!-- air freight table -->
+          <div>
+            <div style="font:700 11px 'Archivo';color:#3a3a3d;margin-bottom:9px;">Air freight</div>
+            <div style="border:1px solid #e2e2e5;border-radius:5px;overflow:hidden;">
+              <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr .9fr;gap:8px;background:#f0f0f2;padding:8px 12px;"><span style="font:700 8px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#9a9a9e;">Airline</span><span style="font:700 8px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#9a9a9e;">Route</span><span style="font:700 8px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#9a9a9e;">Transit</span><span style="font:700 8px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#9a9a9e;">Rate</span><span style="font:700 8px 'Archivo';letter-spacing:.04em;text-transform:uppercase;color:#9a9a9e;text-align:right;">Total</span></div>
+              <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr .9fr;gap:8px;padding:9px 12px;border-top:1px solid #eee;align-items:center;"><div style="width:80px;height:9px;background:#c6c6cb;border-radius:3px;"></div><div style="width:60px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:40px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:9px;background:#bdbdc2;border-radius:3px;margin-left:auto;"></div></div>
+              <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr .9fr;gap:8px;padding:9px 12px;border-top:1px solid #eee;align-items:center;"><div style="width:80px;height:9px;background:#c6c6cb;border-radius:3px;"></div><div style="width:60px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:40px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:9px;background:#bdbdc2;border-radius:3px;margin-left:auto;"></div></div>
+              <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr .9fr;gap:8px;padding:9px 12px;border-top:1px solid #eee;align-items:center;"><div style="width:80px;height:9px;background:#c6c6cb;border-radius:3px;"></div><div style="width:60px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:40px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:46px;height:9px;background:#bdbdc2;border-radius:3px;margin-left:auto;"></div></div>
+            </div>
+          </div>
+
+          <!-- charges -->
+          <div>
+            <div style="font:700 11px 'Archivo';color:#3a3a3d;margin-bottom:9px;">Local charges</div>
+            <div style="display:flex;flex-direction:column;gap:0;">
+              <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eee;"><div style="width:120px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:50px;height:8px;background:#c9c9cd;border-radius:3px;"></div></div>
+              <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eee;"><div style="width:100px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:50px;height:8px;background:#c9c9cd;border-radius:3px;"></div></div>
+              <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eee;"><div style="width:130px;height:8px;background:#dcdce0;border-radius:3px;"></div><div style="width:50px;height:8px;background:#c9c9cd;border-radius:3px;"></div></div>
+            </div>
+          </div>
+
+          <!-- grand total -->
+          <div style="display:flex;justify-content:flex-end;">
+            <div style="background:#3a3a3d;border-radius:6px;padding:14px 22px;display:flex;align-items:center;gap:28px;">
+              <span style="font:700 10px 'Archivo';letter-spacing:.06em;text-transform:uppercase;color:#b6b6ba;">Quote total</span>
+              <div style="width:80px;height:16px;background:#7a7a7e;border-radius:3px;"></div>
+            </div>
+          </div>
+
+          <!-- terms footer -->
+          <div style="border-top:1px solid #ececee;padding-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <div style="font:700 8px 'Archivo';letter-spacing:.05em;text-transform:uppercase;color:#a4a4a8;">Terms &amp; conditions</div>
+            <div style="width:96%;height:7px;background:#e4e4e7;border-radius:2px;"></div>
+            <div style="width:90%;height:7px;background:#e4e4e7;border-radius:2px;"></div>
+            <div style="width:93%;height:7px;background:#e4e4e7;border-radius:2px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Air Freight Wireframes";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
